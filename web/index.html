@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>site_web</title>
+  <meta name="google-signin-client_id" content="552277828510-9h6aaft8iehtlsnq84m2m1sl00l699rl.apps.googleusercontent.com">
+  <style>
+  .loader-wrapper {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+.loader {
+  display: block;
+  position: relative;
+  width: auto;
+  height: 30px;
+  margin-top: 5%;
+  border: 4px solid #B9121B;
+  border-radius: 10px;
+  animation: loader2 2s infinite ease;
+}
+.loader-inner {
+  display: inline-block;
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #B9121B;
+  
+  animation: loader-inner 5s infinite linear;
+}
+
+@keyframes loader-inner {
+  0% { left:0%;}
+  50% { left: calc(100% - 10px);}
+  100% { left:0%;}
+}
+  </style>
+</head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+    <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyBUuVDsShgassurZ2KLgPCpPXNjLsJXfPs",
+    authDomain: "hypertube-81a63.firebaseapp.com",
+    databaseURL: "https://hypertube-81a63.firebaseio.com",
+    projectId: "hypertube-81a63",
+    storageBucket: "hypertube-81a63.appspot.com",
+    messagingSenderId: "552277828510",
+    appId: "1:552277828510:web:29e34640336181e4a56c8f"
+  };
+  firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="main.dart.js" type="application/javascript"></script>
+  <div class="loader-wrapper">
+    <div>
+      <img src='./Logo.png'/>
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+  </div>
+</body>
+</html>
