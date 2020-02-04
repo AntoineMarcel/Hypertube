@@ -4,8 +4,6 @@ Dernier projet de sa série, le projet Hypertube vous invite à découvrir une c
 
 ## Lancement
 
-configuration firebase dans /web/index.html
-
-configuration api 42 dans /lib/main.dart 
-
 lancement : flutter run -d web-server --web-port=5000
+
+puis dans le dossier streaming : node streaming.js
