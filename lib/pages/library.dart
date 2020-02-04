@@ -37,7 +37,9 @@ class _Library extends State<Library> {
                 "&sort_by=" +
                 tab['sortby'] +
                 "&limit=50&page=" +
-                page.toString());
+                page.toString(),
+           headers: {'Access-Control-Allow-Origin': '*'},
+          );
         jsonofwebsite = jsonDecode(getallpages.body);
         if (jsonofwebsite['data']['movies'] != null &&
             getallpages.statusCode == 200) {

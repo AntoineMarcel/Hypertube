@@ -5,6 +5,7 @@ import './library.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase/firebase.dart';
 import 'dart:js' as js;
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class SigninForm extends StatefulWidget {
   Function(Widget) _changeBody;
@@ -87,6 +88,7 @@ class _SigninForm extends State<SigninForm> {
             ),
           ),
           Container(
+            margin: const EdgeInsets.only(top: 40.0),
             child: RaisedButton(
               child: Text(
                 global.langue['signin_label'],
@@ -108,38 +110,35 @@ class _SigninForm extends State<SigninForm> {
               },
               color: Theme.of(context).primaryColor,
             ),
-            margin: new EdgeInsets.only(top: 40.0),
           ),
           Container(
-            child: RaisedButton(
-              child: Text(
-                global.langue['signin_google_label'],
-                style: TextStyle(color: Colors.white),
-              ),
+            margin: const EdgeInsets.only(left: 700.0, right: 700.0),
+            child: SignInButton(
+              Buttons.GoogleDark,
+              text: global.langue['signin_google_label'],
               onPressed: () {
-                Scaffold.of(context).showSnackBar(
-                    SnackBar(content: Text(global.langue['signin_progress'])));
-                loginwithgoogle().then((validation) {
-                  Scaffold.of(context).hideCurrentSnackBar();
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text(validation)));
-                  if (global.isLoggedIn == true)
-                    widget._changeBody(Library(widget._changeBody));
-                });
-              },
-              color: Theme.of(context).primaryColor,
+                  Scaffold.of(context).showSnackBar(
+                      SnackBar(content: Text(global.langue['signin_progress'])));
+                  loginwithgoogle().then((validation) {
+                    Scaffold.of(context).hideCurrentSnackBar();
+                    Scaffold.of(context)
+                        .showSnackBar(SnackBar(content: Text(validation)));
+                    if (global.isLoggedIn == true)
+                      widget._changeBody(Library(widget._changeBody));
+                  });
+                },
             ),
           ),
           Container(
-            child: RaisedButton(
-              child: Text(
-                global.langue['signin_42_label'],
-                style: TextStyle(color: Colors.white),
-              ),
+            margin: const EdgeInsets.only(left: 700.0, right: 700.0),
+            child: SignInButtonBuilder(
+              text: global.langue['signin_42_label'],
+              image: Image.network("https://www.42.us.org/wp-content/uploads/2017/07/logo.png", 
+                                  height: 30),
               onPressed: () {
-                loginwith42();
-              },
-              color: Theme.of(context).primaryColor,
+                  loginwith42();
+                },
+              backgroundColor: Colors.blueGrey[700],
             ),
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../utils/global.dart' as global;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:js' as js;
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class SignupForm extends StatefulWidget {
   @override
@@ -200,12 +201,11 @@ class _SignupForm extends State<SignupForm> {
             ),
             margin: new EdgeInsets.only(top: 40.0),
           ),
-          Container(
-            child: RaisedButton(
-              child: Text(
-                global.langue['signup_google_label'],
-                style: TextStyle(color: Colors.white),
-              ),
+            Container(
+            margin: const EdgeInsets.only(left: 700.0, right: 700.0),
+            child: SignInButton(
+              Buttons.GoogleDark,
+              text: global.langue['signup_google_label'],
               onPressed: () {
                 Scaffold.of(context).showSnackBar(
                     SnackBar(content: Text(global.langue['signup_progress'])));
@@ -215,21 +215,20 @@ class _SignupForm extends State<SignupForm> {
                       .showSnackBar(SnackBar(content: Text(validation)));
                 });
               },
-              color: Theme.of(context).primaryColor,
             ),
           ),
           Container(
-            child: RaisedButton(
-              child: Text(
-                global.langue['signup_42_label'],
-                style: TextStyle(color: Colors.white),
-              ),
+            margin: const EdgeInsets.only(left: 700.0, right: 700.0),
+            child: SignInButtonBuilder(
+              text: global.langue['signup_42_label'],
+              image: Image.network("https://www.42.us.org/wp-content/uploads/2017/07/logo.png", 
+                                  height: 30),
               onPressed: () {
                 Scaffold.of(context).showSnackBar(
                     SnackBar(content: Text(global.langue['signup_progress'])));
                 loginwith42();
               },
-              color: Theme.of(context).primaryColor,
+              backgroundColor: Colors.blueGrey[700],
             ),
           ),
         ],
@@ -237,7 +236,6 @@ class _SignupForm extends State<SignupForm> {
     );
   }
 }
-
 
 Future<void> loginwith42() async {
  js.context.callMethod("open", ['https://api.intra.42.fr/oauth/authorize?client_id=628061f039b7ecd339a752c9039ce8963b96bcb45f70f3e1c5cf816595deda76&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2F&response_type=code', "_self"]);

@@ -1,0 +1,9 @@
+{
+    "name": "mon-app",
+    "version": "0.1.0",
+    "dependencies": {
+        "@types/torrent-stream": "0.0.5",
+        "express": "^4.17.1",
+        "torrent-stream": "^1.2.0"
+    }
+}

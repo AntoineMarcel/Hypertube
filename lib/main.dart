@@ -102,7 +102,7 @@ class _MyApp extends State<MyApp> {
     if (bodyContent == null) bodyContent = SigninForm(_changeBody);
 
     return MaterialApp(
-      title: "appTitle",
+      title: appTitle,
       theme: ThemeData(
         primaryColor: Colors.red,
         scaffoldBackgroundColor: Colors.white30,
@@ -146,8 +146,7 @@ Future<void> check42(Function(Widget) _changeBody) async {
  {
     url = url.substring(index + 6);
     url = url.replaceAll("#/", "");
-    await http.post("https://api.intra.42.fr/oauth/token", 
-          headers: {'Access-Control-Allow-Origin' : '*'},
+    await http.post("https://api.intra.42.fr/oauth/token",
           body: {'grant_type': 'authorization_code', 
           'client_id': '628061f039b7ecd339a752c9039ce8963b96bcb45f70f3e1c5cf816595deda76', 
           'client_secret': 'af344d1a996378df714734653a1b711ebcf61e33f54c1f96327cd4defc54529e',  
@@ -189,10 +188,3 @@ Future<void> check42(Function(Widget) _changeBody) async {
     }
  }
 }
-
-// curl -F grant_type=authorization_code \
-// -F client_id=628061f039b7ecd339a752c9039ce8963b96bcb45f70f3e1c5cf816595deda76 \
-// -F client_secret=af344d1a996378df714734653a1b711ebcf61e33f54c1f96327cd4defc54529e \
-// -F code=551c44bc53b856c7c952abfb5194bd023d46fdb8b50ad8de172b49d684a48991 \
-// -F redirect_uri=http://localhost:5000/ \
-// -X POST https://api.intra.42.fr/oauth/token

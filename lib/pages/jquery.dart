@@ -13,7 +13,7 @@ class jQuery {
 }
 
 @JS()
-@anonymous // This annotation is needed along with the unnamed factory constructor
+@anonymous
 class CssOptions {
   external factory CssOptions(
       {backgroundColor, height, position, width, background});
