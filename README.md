@@ -1,16 +1,9 @@
-# myapp
+# Hypertube
 
-A new Flutter project.
+Dernier projet de sa série, le projet Hypertube vous invite à découvrir une catégorie d'outil extrêmement puissante : les frameworks MVC. Vous apprendrez à manipuler un MVC, dans le langage de votre choix, pour réaliser un site de streaming de video téléchargées via le protocole BitTorrent.
 
-## Getting Started
+## Lancement
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+configuration firebase dans /web/index.html
+configuration api 42 dans /lib/main.dart 
+flutter run -d web-server --web-port=5000
