@@ -7,3 +7,5 @@ Dernier projet de sa série, le projet Hypertube vous invite à découvrir une c
 Dans le dossier principal : flutter run -d web-server --web-port=5000
 
 puis dans le dossier streaming : node streaming.js
+
+![Hypertube](hypertube.gif)
